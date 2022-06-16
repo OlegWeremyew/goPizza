@@ -3,43 +3,69 @@ import React, { FC, useState } from 'react';
 import { ReturnComponentType } from '../types';
 
 type PizzaType = {
+  id: number;
   title: string;
   price: number;
+  imageUrl: string;
+  sizes: number[];
+  types: number[];
+  category: number;
+  rating: number;
 };
 
-export const PizzaBlock: FC<PizzaType> = ({ title, price }): ReturnComponentType => {
-  const [pizzaCount, setPizzaCount] = useState<number>(0);
+export const PizzaBlock: FC<PizzaType> = ({
+  id,
+  title,
+  price,
+  imageUrl,
+  sizes,
+  types,
+  category,
+  rating,
+}): ReturnComponentType => {
+  const typeNames: string[] = ['тонкое', 'традиционное'];
+  const [activeType, setActiveType] = useState<number>(0);
+  const [activeSize, setActiveSize] = useState<number>(0);
 
-  const addNum = (): void => {
-    setPizzaCount(prev => prev + 1);
+  const setPizzaType = (type: number): void => {
+    setActiveType(type);
+  };
+
+  const setPizzaSize = (size: number): void => {
+    setActiveSize(size);
   };
 
   return (
     <div className="pizza-block">
-      <img
-        className="pizza-block__image"
-        src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-        alt="Pizza"
-      />
+      <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          <li className="active">тонкое</li>
-          <li>традиционное</li>
+          {types.map((type, index) => (
+            <li
+              key={type}
+              className={activeType === index ? 'active' : ''}
+              onClick={() => setPizzaType(index)}
+            >
+              {typeNames[type]}
+            </li>
+          ))}
         </ul>
         <ul>
-          <li className="active">26 см.</li>
-          <li>30 см.</li>
-          <li>40 см.</li>
+          {sizes.map((size, index) => (
+            <li
+              key={index}
+              className={activeSize === index ? 'active' : ''}
+              onClick={() => setPizzaSize(index)}
+            >
+              {size} см.
+            </li>
+          ))}
         </ul>
       </div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">от {price} ₽</div>
-        <button
-          onClick={addNum}
-          type="button"
-          className="button button--outline button--add"
-        >
+        <button type="button" className="button button--outline button--add">
           <svg
             width="12"
             height="12"
@@ -53,7 +79,7 @@ export const PizzaBlock: FC<PizzaType> = ({ title, price }): ReturnComponentType
             />
           </svg>
           <span>Добавить</span>
-          <i>{pizzaCount}</i>
+          <i>0</i>
         </button>
       </div>
     </div>
