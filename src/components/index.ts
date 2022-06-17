@@ -3,4 +3,4 @@ export { Categories } from './Categories';
 export { CartItem } from './CartItem';
 export { CartEmpty } from './CartEmpty';
 export { Sort } from './Sort';
-export { PizzaBlock } from './PizzaBlock';
+export * from './PizzaBlock';

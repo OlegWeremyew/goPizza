@@ -2,45 +2,28 @@ import React from 'react';
 
 import './scss/app.scss';
 
-import pizzasList from './assets/pizzas.json';
-import { Categories, Header, PizzaBlock, Sort } from './components';
+import { Route, Routes } from 'react-router-dom';
+
+import { Header } from './components';
+import Cart from './pages/Cart';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 import { ReturnComponentType } from './types';
 
-export type listType = {
-  id: number;
-  imageUrl: string;
-  title: string;
-  types: number[];
-  sizes: number[];
-  price: number;
-  category: number;
-  rating: number;
-};
-
-const App = (): ReturnComponentType => {
-  const lists: listType[] = pizzasList;
-
-  return (
-    <div className="App">
-      <div className="wrapper">
-        <Header />
-        <div className="content">
-          <div className="container">
-            <div className="content__top">
-              <Categories />
-              <Sort />
-            </div>
-            <h2 className="content__title">Все пиццы</h2>
-            <div className="content__items">
-              {lists.map(list => (
-                <PizzaBlock {...list} key={list.id} />
-              ))}
-            </div>
-          </div>
-        </div>
+const App = (): ReturnComponentType => (
+  <div className="App">
+    <div className="wrapper">
+      <Header />
+      <div className="content">
+        <div className="container" />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default App;

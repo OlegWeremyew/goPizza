@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 
-import { ReturnComponentType } from '../types';
+import { ReturnComponentType } from '../../types';
 
 type PizzaType = {
   id: number;
