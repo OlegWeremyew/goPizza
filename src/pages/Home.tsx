@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
-import ReactPaginate from 'react-paginate';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { SearchContext } from '../App';
 import { Categories, PizzaBlock, Sort } from '../components';
 import Pagination from '../components/Pagination';
 import { Skeleton } from '../components/PizzaBlock/Skeleton';
+import { setCategoryId } from '../redux/filter/slice';
+import { RootStateType } from '../redux/types';
 import { ReturnComponentType } from '../types';
 
 export type listType = {
@@ -23,10 +26,15 @@ export type ListType = {
   sortProperty: string;
 };
 
-const Home = ({ searchValue }: any): ReturnComponentType => {
+const Home = (): ReturnComponentType => {
+  const { searchValue } = useContext(SearchContext);
+
+  const categoryId = useSelector<RootStateType, number>(state => state.filter.categoryId);
+  const dispatch = useDispatch();
+
   const [items, setItems] = useState<listType[]>([]);
   const [isLoader, setIsLoader] = useState<boolean>(true);
-  const [categoryId, setCategoryId] = useState<number>(0);
+  // const [categoryId, setCategoryId] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [sortType, setSortType] = useState<ListType>({
     name: 'популярности (DESC)',
@@ -35,6 +43,10 @@ const Home = ({ searchValue }: any): ReturnComponentType => {
 
   const pizzas = items.map(list => <PizzaBlock {...list} key={list.id} />);
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
+
+  const onChangeCategory = (id: number): void => {
+    dispatch(setCategoryId(id));
+  };
 
   useEffect(() => {
     setIsLoader(true);
@@ -58,7 +70,7 @@ const Home = ({ searchValue }: any): ReturnComponentType => {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories value={categoryId} onChangeCategory={setCategoryId} />
+        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort value={sortType} onChangeSort={setSortType} />
       </div>
       <h2 className="content__title">Все пиццы</h2>

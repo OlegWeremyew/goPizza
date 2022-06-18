@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -7,15 +7,7 @@ import { ReturnComponentType } from '../types';
 
 import Search from './Search';
 
-type PropsType = {
-  searchValue: string;
-  setSearchValue: (value: string) => void;
-};
-
-export const Header: FC<PropsType> = ({
-  searchValue,
-  setSearchValue,
-}): ReturnComponentType => (
+export const Header = (): ReturnComponentType => (
   <div className="header">
     <div className="container">
       <Link to="/">
@@ -27,7 +19,7 @@ export const Header: FC<PropsType> = ({
           </div>
         </div>
       </Link>
-      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+      <Search />
       <div className="header__cart">
         <Link to="/cart" className="button button--cart">
           <span>520 ₽</span>

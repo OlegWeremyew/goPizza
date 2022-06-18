@@ -1,15 +1,13 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { ChangeEvent, useContext } from 'react';
 
+import { SearchContext } from '../../App';
 import { ReturnComponentType } from '../../types';
 
 import styles from './Search.module.scss';
 
-type PropsType = {
-  searchValue: string;
-  setSearchValue: (value: string) => void;
-};
+const Search = (): ReturnComponentType => {
+  const { searchValue, setSearchValue } = useContext(SearchContext);
 
-const Search: FC<PropsType> = ({ searchValue, setSearchValue }): ReturnComponentType => {
   const onChangeInputValue = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.currentTarget.value);
   };
