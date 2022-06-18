@@ -11,17 +11,15 @@ import NotFound from './pages/NotFound';
 import { ReturnComponentType } from './types';
 
 const App = (): ReturnComponentType => (
-  <div className="App">
-    <div className="wrapper">
-      <Header />
-      <div className="content">
-        <div className="container" />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-      </div>
+  <div className="wrapper">
+    <Header />
+    <div className="content">
+      <div className="container" />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
     </div>
   </div>
 );

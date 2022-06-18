@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
+import { ListType } from '../pages/Home';
 import { ReturnComponentType } from '../types';
 
-export const Sort = (): ReturnComponentType => {
-  const list: string[] = ['популярности', 'цене', 'алфавиту'];
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [selected, setSelected] = useState<number>(0);
-  const [sortName, setSortName] = useState<string>(list[0]);
+export type SortType = {
+  value: ListType;
+  onChangeSort: (value: ListType) => void;
+};
 
-  const changeSelectedSort = (index: number, name: string): void => {
-    setSelected(index);
-    setSortName(name);
+export const Sort: FC<SortType> = ({ value, onChangeSort }): ReturnComponentType => {
+  const lists: ListType[] = [
+    { name: 'популярности (DESC)', sortProperty: 'rating' },
+    { name: 'популярности (ASC)', sortProperty: '-rating' },
+    { name: 'цене (DESC)', sortProperty: 'price' },
+    { name: 'цене (ASC)', sortProperty: '-price' },
+    { name: 'алфавиту (DESC)', sortProperty: 'title' },
+    { name: 'алфавиту (ASC)', sortProperty: '-title' },
+  ];
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const changeSelectedSort = (list: ListType): void => {
+    onChangeSort(list);
     setIsVisible(false);
   };
 
@@ -30,18 +40,18 @@ export const Sort = (): ReturnComponentType => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setIsVisible(!isVisible)}>{sortName}</span>
+        <span onClick={() => setIsVisible(!isVisible)}>{value.name}</span>
       </div>
       {isVisible && (
         <div className="sort__popup">
           <ul>
-            {list.map((name, index) => (
+            {lists.map((list, index) => (
               <li
                 key={index}
-                className={selected === index ? 'active' : ''}
-                onClick={() => changeSelectedSort(index, name)}
+                className={value.sortProperty === list.sortProperty ? 'active' : ''}
+                onClick={() => changeSelectedSort(list)}
               >
-                {name}
+                {list.name}
               </li>
             ))}
           </ul>

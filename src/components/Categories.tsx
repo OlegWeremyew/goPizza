@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { ReturnComponentType } from '../types';
 
-export const Categories = (): ReturnComponentType => {
-  const [activeIndex, setActiveIndex] = useState<number>(2);
+export type CategoriesType = {
+  value: number;
+  onChangeCategory: (value: number) => void;
+};
 
+export const Categories: FC<CategoriesType> = ({
+  value,
+  onChangeCategory,
+}): ReturnComponentType => {
   const categories: string[] = [
     'Все',
     'Мясные',
@@ -15,19 +21,19 @@ export const Categories = (): ReturnComponentType => {
   ];
 
   const setNewActiveIndex = (index: number): void => {
-    setActiveIndex(index);
+    onChangeCategory(index);
   };
 
   return (
     <div className="categories">
       <ul>
-        {categories.map((category, index) => (
+        {categories.map((categoryName, index) => (
           <li
             key={index}
             onClick={() => setNewActiveIndex(index)}
-            className={activeIndex === index ? 'active' : ''}
+            className={value === index ? 'active' : ''}
           >
-            {category}
+            {categoryName}
           </li>
         ))}
       </ul>
