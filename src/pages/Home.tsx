@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { SearchContext } from '../App';
 import { Categories, PizzaBlock, Sort } from '../components';
 import Pagination from '../components/Pagination';
 import { Skeleton } from '../components/PizzaBlock/Skeleton';
-import { setCategoryId } from '../redux/filter/slice';
+import { setCategoryId, setCurrentPage } from '../redux/filter/slice';
+import { StateFilterType } from '../redux/filter/types';
 import { RootStateType } from '../redux/types';
 import { ReturnComponentType } from '../types';
 
@@ -21,25 +23,16 @@ export type listType = {
   rating: number;
 };
 
-export type ListType = {
-  name: string;
-  sortProperty: string;
-};
-
 const Home = (): ReturnComponentType => {
   const { searchValue } = useContext(SearchContext);
-
-  const categoryId = useSelector<RootStateType, number>(state => state.filter.categoryId);
   const dispatch = useDispatch();
+
+  const { categoryId, sort, currentPage } = useSelector<RootStateType, StateFilterType>(
+    state => state.filter,
+  );
 
   const [items, setItems] = useState<listType[]>([]);
   const [isLoader, setIsLoader] = useState<boolean>(true);
-  // const [categoryId, setCategoryId] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [sortType, setSortType] = useState<ListType>({
-    name: 'популярности (DESC)',
-    sortProperty: 'rating',
-  });
 
   const pizzas = items.map(list => <PizzaBlock {...list} key={list.id} />);
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
@@ -48,34 +41,38 @@ const Home = (): ReturnComponentType => {
     dispatch(setCategoryId(id));
   };
 
+  const onChangePage = (currentPage: number): void => {
+    dispatch(setCurrentPage(currentPage));
+  };
+
   useEffect(() => {
     setIsLoader(true);
 
-    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
-    const sortBy = sortType.sortProperty.replace('-', '');
+    const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
+    const sortBy = sort.sortProperty.replace('-', '');
     const category = categoryId > 0 ? `category=${categoryId}` : '';
     const search = searchValue ? `&search=${searchValue}` : '';
 
-    fetch(
-      `https://626d16545267c14d5677d9c2.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
-    )
-      .then(res => res.json())
-      .then(json => {
-        setItems(json);
+    axios
+      .get(
+        `https://626d16545267c14d5677d9c2.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
+      )
+      .then(res => {
+        setItems(res.data);
         setIsLoader(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, searchValue, currentPage]);
+  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   return (
     <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort value={sortType} onChangeSort={setSortType} />
+        <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">{isLoader ? skeletons : pizzas}</div>
-      <Pagination onChangePage={setCurrentPage} />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
 };

@@ -1,14 +1,21 @@
 import React, { FC, useState } from 'react';
 
-import { ListType } from '../pages/Home';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setSort } from '../redux/filter/slice';
+import { SortObjType } from '../redux/filter/types';
+import { RootStateType } from '../redux/types';
 import { ReturnComponentType } from '../types';
 
-export type SortType = {
-  value: ListType;
-  onChangeSort: (value: ListType) => void;
+export type ListType = {
+  name: string;
+  sortProperty: string;
 };
 
-export const Sort: FC<SortType> = ({ value, onChangeSort }): ReturnComponentType => {
+export const Sort = (): ReturnComponentType => {
+  const dispatch = useDispatch();
+  const sort = useSelector<RootStateType, SortObjType>(state => state.filter.sort);
+
   const lists: ListType[] = [
     { name: 'популярности (DESC)', sortProperty: 'rating' },
     { name: 'популярности (ASC)', sortProperty: '-rating' },
@@ -20,7 +27,7 @@ export const Sort: FC<SortType> = ({ value, onChangeSort }): ReturnComponentType
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const changeSelectedSort = (list: ListType): void => {
-    onChangeSort(list);
+    dispatch(setSort(list));
     setIsVisible(false);
   };
 
@@ -40,7 +47,7 @@ export const Sort: FC<SortType> = ({ value, onChangeSort }): ReturnComponentType
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setIsVisible(!isVisible)}>{value.name}</span>
+        <span onClick={() => setIsVisible(!isVisible)}>{sort.name}</span>
       </div>
       {isVisible && (
         <div className="sort__popup">
@@ -48,7 +55,7 @@ export const Sort: FC<SortType> = ({ value, onChangeSort }): ReturnComponentType
             {lists.map((list, index) => (
               <li
                 key={index}
-                className={value.sortProperty === list.sortProperty ? 'active' : ''}
+                className={sort.sortProperty === list.sortProperty ? 'active' : ''}
                 onClick={() => changeSelectedSort(list)}
               >
                 {list.name}

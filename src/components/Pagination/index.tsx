@@ -6,7 +6,7 @@ import { ReturnComponentType } from '../../types';
 
 import styles from './Pagination.module.scss';
 
-const Pagination = ({ onChangePage }: any): ReturnComponentType => (
+const Pagination = ({ onChangePage, currentPage }: any): ReturnComponentType => (
   <ReactPaginate
     className={styles.root}
     breakLabel="..."
@@ -14,6 +14,7 @@ const Pagination = ({ onChangePage }: any): ReturnComponentType => (
     previousLabel="<"
     onPageChange={event => onChangePage(event.selected + 1)}
     pageRangeDisplayed={4}
+    forcePage={currentPage - 1}
     pageCount={3}
   />
 );
