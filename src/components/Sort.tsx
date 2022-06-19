@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,6 +10,10 @@ import { ReturnComponentType } from '../types';
 export type ListType = {
   name: string;
   sortProperty: string;
+};
+
+type PopupClick = MouseEvent & {
+  path: Node[];
 };
 
 export const listsArray: ListType[] = [
@@ -24,6 +28,7 @@ export const listsArray: ListType[] = [
 export const Sort = (): ReturnComponentType => {
   const dispatch = useDispatch();
   const sort = useSelector<RootStateType, SortObjType>(state => state.filter.sort);
+  const sortRef = useRef<HTMLDivElement>(null);
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -32,8 +37,19 @@ export const Sort = (): ReturnComponentType => {
     setIsVisible(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent): void => {
+      const _event = event as PopupClick;
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {
+        setIsVisible(false);
+      }
+    };
+    document.body.addEventListener('click', handleClickOutside);
+    return () => document.body.removeEventListener('click', handleClickOutside);
+  }, []);
+
   return (
-    <div className="sort">
+    <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
           width="10"

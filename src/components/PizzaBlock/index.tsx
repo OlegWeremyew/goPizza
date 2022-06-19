@@ -1,5 +1,10 @@
 import React, { FC, useState } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addItem } from '../../redux/cart/slice';
+import { ItemCartType } from '../../redux/cart/types';
+import { RootStateType } from '../../redux/types';
 import { ReturnComponentType } from '../../types';
 
 type PizzaType = {
@@ -13,6 +18,8 @@ type PizzaType = {
   rating: number;
 };
 
+const typeNames: string[] = ['тонкое', 'традиционное'];
+
 export const PizzaBlock: FC<PizzaType> = ({
   id,
   title,
@@ -23,9 +30,27 @@ export const PizzaBlock: FC<PizzaType> = ({
   category,
   rating,
 }): ReturnComponentType => {
-  const typeNames: string[] = ['тонкое', 'традиционное'];
   const [activeType, setActiveType] = useState<number>(0);
   const [activeSize, setActiveSize] = useState<number>(0);
+  const dispatch = useDispatch();
+  const cartItem = useSelector<RootStateType, any>(state =>
+    state.cart.items.find(obj => obj.id === id),
+  );
+
+  const addedCount = cartItem ? cartItem.count : 0;
+
+  const onClickAdd = (): void => {
+    const item: ItemCartType = {
+      id,
+      title,
+      price,
+      imageUrl,
+      type: typeNames[activeType],
+      sizes: sizes[activeSize],
+      count: 0,
+    };
+    dispatch(addItem(item));
+  };
 
   const setPizzaType = (type: number): void => {
     setActiveType(type);
@@ -66,7 +91,11 @@ export const PizzaBlock: FC<PizzaType> = ({
         </div>
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">от {price} ₽</div>
-          <button type="button" className="button button--outline button--add">
+          <button
+            onClick={onClickAdd}
+            type="button"
+            className="button button--outline button--add"
+          >
             <svg
               width="12"
               height="12"
@@ -80,7 +109,7 @@ export const PizzaBlock: FC<PizzaType> = ({
               />
             </svg>
             <span>Добавить</span>
-            <i>0</i>
+            {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>
