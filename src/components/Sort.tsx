@@ -12,18 +12,19 @@ export type ListType = {
   sortProperty: string;
 };
 
+export const listsArray: ListType[] = [
+  { name: 'популярности (DESC)', sortProperty: 'rating' },
+  { name: 'популярности (ASC)', sortProperty: '-rating' },
+  { name: 'цене (DESC)', sortProperty: 'price' },
+  { name: 'цене (ASC)', sortProperty: '-price' },
+  { name: 'алфавиту (DESC)', sortProperty: 'title' },
+  { name: 'алфавиту (ASC)', sortProperty: '-title' },
+];
+
 export const Sort = (): ReturnComponentType => {
   const dispatch = useDispatch();
   const sort = useSelector<RootStateType, SortObjType>(state => state.filter.sort);
 
-  const lists: ListType[] = [
-    { name: 'популярности (DESC)', sortProperty: 'rating' },
-    { name: 'популярности (ASC)', sortProperty: '-rating' },
-    { name: 'цене (DESC)', sortProperty: 'price' },
-    { name: 'цене (ASC)', sortProperty: '-price' },
-    { name: 'алфавиту (DESC)', sortProperty: 'title' },
-    { name: 'алфавиту (ASC)', sortProperty: '-title' },
-  ];
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const changeSelectedSort = (list: ListType): void => {
@@ -52,7 +53,7 @@ export const Sort = (): ReturnComponentType => {
       {isVisible && (
         <div className="sort__popup">
           <ul>
-            {lists.map((list, index) => (
+            {listsArray.map((list, index) => (
               <li
                 key={index}
                 className={sort.sortProperty === list.sortProperty ? 'active' : ''}
