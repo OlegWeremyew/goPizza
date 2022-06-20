@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import Loadable from 'react-loadable';
 import { Routes, Route } from 'react-router-dom';
@@ -20,30 +20,9 @@ const App: React.FC = () => (
   <Routes>
     <Route path="/" element={<MainLayout />}>
       <Route path="" element={<Home />} />
-      <Route
-        path="cart"
-        element={
-          <Suspense fallback={<div>Идёт загрузка корзины...</div>}>
-            <Cart />
-          </Suspense>
-        }
-      />
-      <Route
-        path="pizza/:id"
-        element={
-          <Suspense fallback={<div>Идёт загрузка...</div>}>
-            <FullPizza />
-          </Suspense>
-        }
-      />
-      <Route
-        path="*"
-        element={
-          <Suspense fallback={<div>Идёт загрузка...</div>}>
-            <NotFound />
-          </Suspense>
-        }
-      />
+      <Route path="cart" element={<Cart />} />
+      <Route path="pizza/:id" element={<FullPizza />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   </Routes>
 );

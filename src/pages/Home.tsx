@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useSelector } from 'react-redux';
 
 import { Categories, Sort, PizzaBlock, Skeleton, Pagination } from '../components';
+import { EMPTY_STRING } from '../constants';
 import { selectFilter } from '../redux/filter/selectors';
 import { setCategoryId, setCurrentPage } from '../redux/filter/slice';
 import { fetchPizzas } from '../redux/pizza/asyncActions';
 import { selectPizzaData } from '../redux/pizza/selectors';
-import { useAppDispatch } from '../redux/store';
+import { useAppDispatch } from '../redux/types';
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -15,7 +16,7 @@ const Home: React.FC = () => {
   const { items, status } = useSelector(selectPizzaData);
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
 
-  const onChangeCategory = React.useCallback((idx: number): void => {
+  const onChangeCategory = useCallback((idx: number): void => {
     dispatch(setCategoryId(idx));
   }, []);
 
@@ -24,9 +25,9 @@ const Home: React.FC = () => {
   };
 
   const getPizzas = async (): Promise<any> => {
-    const sortBy = sort.sortProperty.replace('-', '');
+    const sortBy = sort.sortProperty.replace('-', EMPTY_STRING);
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
-    const category = categoryId > 0 ? String(categoryId) : '';
+    const category = categoryId > 0 ? String(categoryId) : EMPTY_STRING;
     const search = searchValue;
 
     dispatch(

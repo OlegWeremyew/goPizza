@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import debounce from 'lodash.debounce';
 import { useDispatch } from 'react-redux';
 
+import { EMPTY_STRING } from '../../constants';
 import { setSearchValue } from '../../redux/filter/slice';
 
 import styles from './Search.module.scss';
 
 export const Search: React.FC = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = React.useState<string>('');
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const [value, setValue] = useState<string>(EMPTY_STRING);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onClickClear = (): void => {
-    dispatch(setSearchValue(''));
-    setValue('');
+    dispatch(setSearchValue(EMPTY_STRING));
+    setValue(EMPTY_STRING);
     inputRef.current?.focus();
   };
 

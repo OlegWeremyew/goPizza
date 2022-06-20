@@ -1,6 +1,8 @@
+import React, { Suspense } from 'react';
+
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import App from './App';
 import { store } from './redux/store';
@@ -11,10 +13,12 @@ if (rootElem) {
   const root = ReactDOM.createRoot(rootElem);
 
   root.render(
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>,
+    <HashRouter>
+      <Suspense fallback={<div>Идёт загрузка корзины...</div>}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </Suspense>
+    </HashRouter>,
   );
 }

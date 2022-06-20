@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { EMPTY_STRING } from '../../constants';
+
 import { FilterSliceState, Sort, SortPropertyEnum } from './types';
 
 const initialState: FilterSliceState = {
-  searchValue: '',
+  searchValue: EMPTY_STRING,
   categoryId: 0,
   currentPage: 1,
   sort: {

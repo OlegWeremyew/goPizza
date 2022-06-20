@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { EMPTY_ARRAY } from '../../constants';
 import { calcTotalPrice } from '../../utils/calcTotalPrice';
 import { getCartFromLS } from '../../utils/getCartFromLS';
 
@@ -39,7 +40,7 @@ const cartSlice = createSlice({
       state.totalPrice = calcTotalPrice(state.items);
     },
     clearItems(state) {
-      state.items = [];
+      state.items = EMPTY_ARRAY;
       state.totalPrice = 0;
     },
   },

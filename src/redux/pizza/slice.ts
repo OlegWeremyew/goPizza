@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { EMPTY_ARRAY } from '../../constants';
+
 import { fetchPizzas } from './asyncActions';
 import { Pizza, PizzaSliceState, Status } from './types';
 
 const initialState: PizzaSliceState = {
-  items: [],
+  items: EMPTY_ARRAY,
   status: Status.LOADING,
 };
 
@@ -19,7 +21,7 @@ const pizzaSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchPizzas.pending, state => {
       state.status = Status.LOADING;
-      state.items = [];
+      state.items = EMPTY_ARRAY;
     });
 
     builder.addCase(fetchPizzas.fulfilled, (state, action) => {
@@ -29,7 +31,7 @@ const pizzaSlice = createSlice({
 
     builder.addCase(fetchPizzas.rejected, state => {
       state.status = Status.ERROR;
-      state.items = [];
+      state.items = EMPTY_ARRAY;
     });
   },
 });
