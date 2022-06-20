@@ -1,42 +1,26 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 
-import { ReturnComponentType } from '../types';
-
-export type CategoriesType = {
+type CategoriesProps = {
   value: number;
-  onChangeCategory: (value: number) => void;
+  onChangeCategory: (idx: number) => void;
 };
 
-export const Categories: FC<CategoriesType> = ({
-  value,
-  onChangeCategory,
-}): ReturnComponentType => {
-  const categories: string[] = [
-    'Все',
-    'Мясные',
-    'Вегетарианская',
-    'Гриль',
-    'Острые',
-    'Закрытые',
-  ];
+const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
-  const setNewActiveIndex = (index: number): void => {
-    onChangeCategory(index);
-  };
-
-  return (
+export const Categories: React.FC<CategoriesProps> = React.memo(
+  ({ value, onChangeCategory }) => (
     <div className="categories">
       <ul>
-        {categories.map((categoryName, index) => (
+        {categories.map((categoryName, i) => (
           <li
-            key={index}
-            onClick={() => setNewActiveIndex(index)}
-            className={value === index ? 'active' : ''}
+            key={i}
+            onClick={() => onChangeCategory(i)}
+            className={value === i ? 'active' : ''}
           >
             {categoryName}
           </li>
         ))}
       </ul>
     </div>
-  );
-};
+  ),
+);

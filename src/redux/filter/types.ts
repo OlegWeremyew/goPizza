@@ -7,20 +7,14 @@ export enum SortPropertyEnum {
   PRICE_ASC = '-price',
 }
 
-export interface StateFilterType {
-  categoryId: number;
-  currentPage: number;
-  sort: SortObjType;
-}
-
-export type SortObjType = {
+export type Sort = {
   name: string;
-  sortProperty: string;
+  sortProperty: SortPropertyEnum;
 };
 
 export interface FilterSliceState {
   searchValue: string;
   categoryId: number;
   currentPage: number;
-  sort: SortObjType;
+  sort: Sort;
 }

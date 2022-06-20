@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
 import { addItem, minusItem, removeItem } from '../redux/cart/slice';
-import { ItemCartType } from '../redux/cart/types';
-import { ReturnComponentType } from '../types';
+import { CartItem as CartItemType } from '../redux/cart/types';
 
 type CartItemProps = {
   id: string;
@@ -16,7 +15,7 @@ type CartItemProps = {
   imageUrl: string;
 };
 
-export const CartItem: FC<CartItemProps> = ({
+export const CartItem: React.FC<CartItemProps> = ({
   id,
   title,
   type,
@@ -24,14 +23,14 @@ export const CartItem: FC<CartItemProps> = ({
   price,
   count,
   imageUrl,
-}): ReturnComponentType => {
+}) => {
   const dispatch = useDispatch();
-  console.log(size, type);
+
   const onClickPlus = (): void => {
     dispatch(
       addItem({
         id,
-      } as ItemCartType),
+      } as CartItemType),
     );
   };
 
@@ -40,7 +39,6 @@ export const CartItem: FC<CartItemProps> = ({
   };
 
   const onClickRemove = (): void => {
-    // eslint-disable-next-line no-alert
     if (window.confirm('Ты действительно хочешь удалить товар?')) {
       dispatch(removeItem(id));
     }
@@ -109,11 +107,7 @@ export const CartItem: FC<CartItemProps> = ({
         <b>{price * count} ₽</b>
       </div>
       <div className="cart__item-remove">
-        <button
-          type="button"
-          onClick={onClickRemove}
-          className="button button--outline button--circle"
-        >
+        <div onClick={onClickRemove} className="button button--outline button--circle">
           <svg
             width="10"
             height="10"
@@ -130,7 +124,7 @@ export const CartItem: FC<CartItemProps> = ({
               fill="#EB5A1E"
             />
           </svg>
-        </button>
+        </div>
       </div>
     </div>
   );

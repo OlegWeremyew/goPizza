@@ -1,6 +1,10 @@
-export { Header } from './Header';
-export { Categories } from './Categories';
-export { CartItem } from './CartItem';
-export { CartEmpty } from './CartEmpty';
-export { Sort } from './Sort';
+export * from './PizzaBlock/Skeleton';
 export * from './PizzaBlock';
+export * from './Header';
+export * from './Categories';
+export * from './CartItem';
+export * from './CartEmpty';
+export * from './Search';
+export * from './Pagination';
+export * from './NotFoundBlock';
+export * from './Sort';

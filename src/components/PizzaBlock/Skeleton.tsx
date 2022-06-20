@@ -2,9 +2,7 @@ import React from 'react';
 
 import ContentLoader from 'react-content-loader';
 
-import { ReturnComponentType } from '../../types';
-
-export const Skeleton = (): ReturnComponentType => (
+export const Skeleton: React.FC = () => (
   <ContentLoader
     className="pizza-block"
     speed={2}

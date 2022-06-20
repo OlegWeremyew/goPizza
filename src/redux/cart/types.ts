@@ -1,14 +1,14 @@
-export type CartInitialType = {
-  totalPrice: number;
-  items: any[];
-};
-
-export type ItemCartType = {
-  id: string | number;
+export type CartItem = {
+  id: string;
   title: string;
   price: number;
   imageUrl: string;
   type: string;
-  sizes: number;
+  size: number;
   count: number;
 };
+
+export interface CartSliceState {
+  totalPrice: number;
+  items: CartItem[];
+}

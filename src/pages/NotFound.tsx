@@ -1,8 +1,7 @@
 import React from 'react';
 
-import NotFoundBlock from '../components/NotFoundBlock';
-import { ReturnComponentType } from '../types';
+import { NotFoundBlock } from '../components';
 
-const NotFound = (): ReturnComponentType => <NotFoundBlock />;
+const NotFound: React.FC = () => <NotFoundBlock />;
 
 export default NotFound;

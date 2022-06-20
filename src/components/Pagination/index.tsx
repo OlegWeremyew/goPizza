@@ -2,11 +2,14 @@ import React from 'react';
 
 import ReactPaginate from 'react-paginate';
 
-import { ReturnComponentType } from '../../types';
-
 import styles from './Pagination.module.scss';
 
-const Pagination = ({ onChangePage, currentPage }: any): ReturnComponentType => (
+type PaginationProps = {
+  currentPage: number;
+  onChangePage: (page: number) => void;
+};
+
+export const Pagination: React.FC<PaginationProps> = ({ currentPage, onChangePage }) => (
   <ReactPaginate
     className={styles.root}
     breakLabel="..."
@@ -14,9 +17,7 @@ const Pagination = ({ onChangePage, currentPage }: any): ReturnComponentType => 
     previousLabel="<"
     onPageChange={event => onChangePage(event.selected + 1)}
     pageRangeDisplayed={4}
-    forcePage={currentPage - 1}
     pageCount={3}
+    forcePage={currentPage - 1}
   />
 );
-
-export default Pagination;

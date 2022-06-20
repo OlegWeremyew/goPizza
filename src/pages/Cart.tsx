@@ -3,27 +3,25 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { CartEmpty, CartItem } from '../components';
+import { CartItem, CartEmpty } from '../components';
+import { selectCart } from '../redux/cart/selectors';
 import { clearItems } from '../redux/cart/slice';
-import { CartInitialType } from '../redux/cart/types';
-import { RootStateType } from '../redux/types';
-import { ReturnComponentType } from '../types';
 
-const Cart = (): ReturnComponentType => {
+const Cart: React.FC = () => {
   const dispatch = useDispatch();
-  const { items, totalPrice } = useSelector<RootStateType, CartInitialType>(
-    state => state.cart,
-  );
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  const { totalPrice, items } = useSelector(selectCart);
+
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
   const onClickClear = (): void => {
-    // eslint-disable-next-line no-alert
     if (window.confirm('Очистить корзину?')) {
       dispatch(clearItems());
     }
   };
 
-  if (!totalPrice) return <CartEmpty />;
+  if (!totalPrice) {
+    return <CartEmpty />;
+  }
 
   return (
     <div className="container container--cart">

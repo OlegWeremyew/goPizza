@@ -49,7 +49,7 @@
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
-    "no-alert": "error",
+    "no-alert": "off",
     "no-debugger": "error",
     "camelcase": "off",
     "no-plusplus": "error",
@@ -127,7 +127,7 @@
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "import/order": [
-      "error",
+      "warn",
       {
         "newlines-between": "always",
         "pathGroupsExcludedImportTypes": [
@@ -154,7 +154,7 @@
       }
     ],
     "import/no-extraneous-dependencies": [
-      "error",
+      "off",
       {
         "devDependencies": true,
         "optionalDependencies": true,

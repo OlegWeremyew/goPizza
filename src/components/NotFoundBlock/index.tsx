@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { ReturnComponentType } from '../../types';
-
 import styles from './NotFoundBlock.module.scss';
 
-const NotFoundBlock = (): ReturnComponentType => (
+export const NotFoundBlock: React.FC = () => (
   <div className={styles.root}>
     <h1>
       <span>😕</span>
@@ -16,5 +14,3 @@ const NotFoundBlock = (): ReturnComponentType => (
     </p>
   </div>
 );
-
-export default NotFoundBlock;
