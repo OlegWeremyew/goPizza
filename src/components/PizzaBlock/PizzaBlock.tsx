@@ -3,22 +3,13 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { EMPTY_STRING } from '../../constants';
 import { selectCartItemById } from '../../redux/cart/selectors';
 import { addItem } from '../../redux/cart/slice';
 import { CartItem } from '../../redux/cart/types';
 
-const typeNames = ['тонкое', 'традиционное'];
-
-type PizzaBlockProps = {
-  id: string;
-  title: string;
-  price: number;
-  imageUrl: string;
-  sizes: number[];
-  types: number[];
-  // eslint-disable-next-line react/no-unused-prop-types
-  rating: number;
-};
+import { typeNames } from './data';
+import { PizzaBlockProps } from './types';
 
 export const PizzaBlock: React.FC<PizzaBlockProps> = ({
   id,
@@ -61,7 +52,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
               <li
                 key={typeId}
                 onClick={() => setActiveType(typeId)}
-                className={activeType === typeId ? 'active' : ''}
+                className={activeType === typeId ? 'active' : EMPTY_STRING}
               >
                 {typeNames[typeId]}
               </li>
@@ -72,7 +63,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
               <li
                 key={size}
                 onClick={() => setActiveSize(i)}
-                className={activeSize === i ? 'active' : ''}
+                className={activeSize === i ? 'active' : EMPTY_STRING}
               >
                 {size} см.
               </li>

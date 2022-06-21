@@ -2,30 +2,11 @@ import React, { memo, useRef, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { setSort } from '../redux/filter/slice';
-import { Sort as SortType, SortPropertyEnum } from '../redux/filter/types';
+import { EMPTY_STRING } from '../../constants';
+import { setSort } from '../../redux/filter/slice';
 
-type SortItem = {
-  name: string;
-  sortProperty: SortPropertyEnum;
-};
-
-type PopupClick = MouseEvent & {
-  path: Node[];
-};
-
-type SortPopupProps = {
-  value: SortType;
-};
-
-export const sortList: SortItem[] = [
-  { name: 'популярности (DESC)', sortProperty: SortPropertyEnum.RATING_DESC },
-  { name: 'популярности (ASC)', sortProperty: SortPropertyEnum.RATING_ASC },
-  { name: 'цене (DESC)', sortProperty: SortPropertyEnum.PRICE_DESC },
-  { name: 'цене (ASC)', sortProperty: SortPropertyEnum.PRICE_ASC },
-  { name: 'алфавиту (DESC)', sortProperty: SortPropertyEnum.TITLE_DESC },
-  { name: 'алфавиту (ASC)', sortProperty: SortPropertyEnum.TITLE_ASC },
-];
+import { sortList } from './data';
+import { PopupClick, SortItem, SortPopupProps } from './types';
 
 export const Sort: React.FC<SortPopupProps> = memo(({ value }) => {
   const dispatch = useDispatch();
@@ -73,11 +54,13 @@ export const Sort: React.FC<SortPopupProps> = memo(({ value }) => {
       {open && (
         <div className="sort__popup">
           <ul>
-            {sortList.map((obj, i) => (
+            {sortList.map((obj, index) => (
               <li
-                key={i}
+                key={index}
                 onClick={() => onClickListItem(obj)}
-                className={value.sortProperty === obj.sortProperty ? 'active' : ''}
+                className={
+                  value.sortProperty === obj.sortProperty ? 'active' : EMPTY_STRING
+                }
               >
                 {obj.name}
               </li>

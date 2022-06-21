@@ -1,12 +1,11 @@
-import React, { FC, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
-import logoSvg from '../assets/img/pizza-logo.svg';
-import { selectCart } from '../redux/cart/selectors';
-
-import { Search } from '.';
+import logoSvg from '../../assets/img/pizza-logo.svg';
+import { selectCart } from '../../redux/cart/selectors';
+import { Search } from '../Search/Search';
 
 export const Header: React.FC = () => {
   const { items, totalPrice } = useSelector(selectCart);
@@ -15,7 +14,7 @@ export const Header: React.FC = () => {
 
   const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isMounted.current) {
       const json = JSON.stringify(items);
       localStorage.setItem('cart', json);

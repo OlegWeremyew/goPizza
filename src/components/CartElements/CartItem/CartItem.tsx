@@ -2,18 +2,9 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { addItem, minusItem, removeItem } from '../redux/cart/slice';
-import { CartItem as CartItemType } from '../redux/cart/types';
-
-type CartItemProps = {
-  id: string;
-  title: string;
-  type: string;
-  size: number;
-  price: number;
-  count: number;
-  imageUrl: string;
-};
+import { addItem, minusItem, removeItem } from '../../../redux/cart/slice';
+import { CartItem as CartItemType } from '../../../redux/cart/types';
+import { CartItemProps } from '../CartEmpty/types';
 
 export const CartItem: React.FC<CartItemProps> = ({
   id,

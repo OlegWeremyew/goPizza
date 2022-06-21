@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 
 import './scss/app.scss';
-import MainLayout from './layouts/MainLayout';
+import { MainLayout } from './layouts';
 
 const Cart = Loadable({
   loader: () => import('./pages/Cart'),

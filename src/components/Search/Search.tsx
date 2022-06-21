@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { ChangeEvent, useCallback, useRef, useState } from 'react';
 
 import debounce from 'lodash.debounce';
 import { useDispatch } from 'react-redux';
@@ -19,14 +19,14 @@ export const Search: React.FC = () => {
     inputRef.current?.focus();
   };
 
-  const updateSearchValue = React.useCallback(
+  const updateSearchValue = useCallback(
     debounce((str: string) => {
       dispatch(setSearchValue(str));
     }, 150),
     [],
   );
 
-  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
     updateSearchValue(event.target.value);
   };
