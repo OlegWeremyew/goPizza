@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
+import styles from './FullPizza.module.scss';
+
 type PizzasType = {
   imageUrl: string;
   title: string;
@@ -35,8 +37,8 @@ const FullPizza: React.FC = () => {
   }
 
   return (
-    <div className="container">
-      <img src={pizza.imageUrl} alt="pizza" />
+    <div className={styles.container}>
+      <img className={styles.pizzaImg} src={pizza.imageUrl} alt="pizza" />
       <h2>{pizza.title}</h2>
       <h4>{pizza.price} ₽</h4>
       <Link to="/">

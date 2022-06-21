@@ -7,7 +7,7 @@ export const InnerHeader: React.FC = () => (
     <img width="38" src={logoSvg} alt="Pizza logo" />
     <div>
       <h1>Go Pizza</h1>
-      <p>самая вкусная пицца во вселенной</p>
+      <p>самая вкусная пицца</p>
     </div>
   </div>
 );

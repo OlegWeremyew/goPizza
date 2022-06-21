@@ -7,11 +7,4 @@ export {
   CartTitle,
   CartFooter,
 } from './CartElements';
-export {
-  Categories,
-  Pagination,
-  Sort,
-  PizzaBlock,
-  Skeleton,
-  AllPizzas,
-} from './HomeElements';
+export { Categories, Pagination, Sort, AllPizzas } from './HomeElements';

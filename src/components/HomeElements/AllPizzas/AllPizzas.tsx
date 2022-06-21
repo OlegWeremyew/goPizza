@@ -3,11 +3,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { selectPizzaData } from '../../../redux/pizza/selectors';
-import { PizzaBlock, Skeleton } from '../PizzaBlock';
+import { Pizza } from '../../../redux/pizza/types';
+
+import { PizzaBlock } from './PizzaBlock';
+import { Skeleton } from './Skeleton';
 
 export const AllPizzas: React.FC = () => {
   const { items, status } = useSelector(selectPizzaData);
-  const pizzas = items.map((obj: any) => <PizzaBlock key={obj.id} {...obj} />);
+  const pizzas = items.map((obj: Pizza) => <PizzaBlock key={obj.id} {...obj} />);
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
   return (
     <>

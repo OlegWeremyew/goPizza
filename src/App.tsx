@@ -13,7 +13,7 @@ const Cart = Loadable({
   loading: () => <div>Идёт загрузка корзины...</div>,
 });
 
-const FullPizza = React.lazy(() => import('./pages/FullPizza'));
+const FullPizza = React.lazy(() => import('./pages/FullPizza/FullPizza'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 const App: React.FC = () => (

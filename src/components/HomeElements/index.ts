@@ -1,5 +1,6 @@
 export { Sort } from './Sort';
 export { Pagination } from './Pagination';
 export { Categories } from './Categories';
-export { PizzaBlock, Skeleton } from './PizzaBlock';
+export { PizzaBlock } from './AllPizzas/PizzaBlock';
 export { AllPizzas } from './AllPizzas';
+export { Skeleton } from './AllPizzas/Skeleton';

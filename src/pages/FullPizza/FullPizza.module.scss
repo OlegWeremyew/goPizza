@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .pizzaImg {
+    width: 584px;
+    height: 584px;
+
+    @media (max-width: 700px) {
+      width: 424px;
+      height: 424px;
+    }
+
+    @media (max-width: 460px) {
+      width: 300px;
+      height: 300px;
+    }
+
+  }
+
+  h4 {
+    margin: 5px 0 20px;
+  }
+}

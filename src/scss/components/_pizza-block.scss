@@ -6,6 +6,10 @@
   margin-bottom: 65px;
   transition: all 0.2s ease-in-out;
 
+  @media (max-width: 350px) {
+    width: 260px;
+  }
+
   &:hover {
     transform: scale(1.03);
   }
@@ -22,7 +26,6 @@
   &__title {
     font-size: 20px;
     font-weight: 900;
-    letter-spacing: 1%;
     margin-bottom: 20px;
   }
 
