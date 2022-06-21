@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/goPizza/static/css/main.bc2c2233.css",
+    "main.js": "/goPizza/static/js/main.0f6de5c0.js",
+    "static/js/303.c02b94a0.chunk.js": "/goPizza/static/js/303.c02b94a0.chunk.js",
+    "static/css/269.74b3b939.chunk.css": "/goPizza/static/css/269.74b3b939.chunk.css",
+    "static/js/269.b3feee0d.chunk.js": "/goPizza/static/js/269.b3feee0d.chunk.js",
+    "static/js/949.6b448246.chunk.js": "/goPizza/static/js/949.6b448246.chunk.js",
+    "static/media/pizza.png": "/goPizza/static/media/pizza.95d2ec3b77f9841698ec.png",
+    "static/media/empty-cart.png": "/goPizza/static/media/empty-cart.db905d1f4b063162f25b.png",
+    "index.html": "/goPizza/index.html",
+    "main.bc2c2233.css.map": "/goPizza/static/css/main.bc2c2233.css.map",
+    "main.0f6de5c0.js.map": "/goPizza/static/js/main.0f6de5c0.js.map",
+    "303.c02b94a0.chunk.js.map": "/goPizza/static/js/303.c02b94a0.chunk.js.map",
+    "269.74b3b939.chunk.css.map": "/goPizza/static/css/269.74b3b939.chunk.css.map",
+    "269.b3feee0d.chunk.js.map": "/goPizza/static/js/269.b3feee0d.chunk.js.map",
+    "949.6b448246.chunk.js.map": "/goPizza/static/js/949.6b448246.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc2c2233.css",
+    "static/js/main.0f6de5c0.js"
+  ]
+}

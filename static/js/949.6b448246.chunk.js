@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgo_pizza=self.webpackChunkgo_pizza||[]).push([[949],{4949:function(u,e,n){n.r(e);n(2791);var a=n(984),r=n(184);e.default=function(){return(0,r.jsx)(a.vr,{})}}}]);
+//# sourceMappingURL=949.6b448246.chunk.js.map
