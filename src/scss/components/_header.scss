@@ -20,6 +20,12 @@
 
   &__logo {
     display: flex;
+    padding: 5px;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: #f8f5f5;
+    }
 
     img {
       margin-right: 15px;
@@ -28,7 +34,6 @@
     h1 {
       color: #181818;
       font-size: 24px;
-      letter-spacing: 1%;
       text-transform: uppercase;
       font-weight: 800;
     }

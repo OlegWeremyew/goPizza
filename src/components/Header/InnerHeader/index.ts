@@ -1,0 +1,1 @@
+export { InnerHeader } from './InnerHeader';

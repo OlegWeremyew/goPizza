@@ -1,9 +1,5 @@
-export { Categories } from './Categories';
 export { Header } from './Header';
 export { NotFoundBlock } from './NotFoundBlock';
-export { Pagination } from './Pagination';
-export { Skeleton, PizzaBlock } from './PizzaBlock';
-export { Sort } from './Sort';
 export {
   CartItem,
   CartEmpty,
@@ -11,3 +7,11 @@ export {
   CartTitle,
   CartFooter,
 } from './CartElements';
+export {
+  Categories,
+  Pagination,
+  Sort,
+  PizzaBlock,
+  Skeleton,
+  AllPizzas,
+} from './HomeElements';

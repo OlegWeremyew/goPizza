@@ -1,0 +1,1 @@
+export { GoCartIcon } from './GoCartIcon';

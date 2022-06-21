@@ -1,4 +1,4 @@
-import { SortPropertyEnum } from '../../../redux/filter/types';
+import { SortPropertyEnum } from '../../../../redux/filter/types';
 import { SortItem } from '../types';
 
 export const sortList: SortItem[] = [

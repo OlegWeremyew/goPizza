@@ -1,0 +1,1 @@
+export { AllPizzas } from './AllPizzas';

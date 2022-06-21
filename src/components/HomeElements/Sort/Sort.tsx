@@ -1,9 +1,9 @@
-import React, { memo, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { EMPTY_STRING } from '../../constants';
-import { setSort } from '../../redux/filter/slice';
+import { EMPTY_STRING } from '../../../constants';
+import { setSort } from '../../../redux/filter/slice';
 
 import { sortList } from './data';
 import { PopupClick, SortItem, SortPopupProps } from './types';
@@ -19,7 +19,7 @@ export const Sort: React.FC<SortPopupProps> = memo(({ value }) => {
     setOpen(false);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent): any => {
       const _event = event as PopupClick;
 
