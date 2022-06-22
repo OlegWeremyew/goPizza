@@ -10,8 +10,10 @@ import { Skeleton } from './Skeleton';
 
 export const AllPizzas: React.FC = () => {
   const { items, status } = useSelector(selectPizzaData);
+
   const pizzas = items.map((obj: Pizza) => <PizzaBlock key={obj.id} {...obj} />);
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
+
   return (
     <>
       <h2 className="content__title">Все пиццы</h2>

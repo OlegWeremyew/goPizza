@@ -8,3 +8,4 @@ export {
   CartFooter,
 } from './CartElements';
 export { Categories, Pagination, Sort, AllPizzas } from './HomeElements';
+export { Preloader } from './Preloader';

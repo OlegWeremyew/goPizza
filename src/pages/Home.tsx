@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from "react";
 
 import { useSelector } from 'react-redux';
 
@@ -41,7 +41,7 @@ const Home: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     getPizzas();
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 

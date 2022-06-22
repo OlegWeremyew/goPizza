@@ -12,6 +12,7 @@ import styles from './Search.module.scss';
 
 export const Search: React.FC = () => {
   const dispatch = useDispatch();
+
   const [value, setValue] = useState<string>(EMPTY_STRING);
   const inputRef = useRef<HTMLInputElement>(null);
 
