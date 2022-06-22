@@ -3,18 +3,18 @@ import React from 'react';
 import Loadable from 'react-loadable';
 import { Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-
 import './scss/app.scss';
+import { Preloader } from './components';
 import { MainLayout } from './layouts';
 
 const Cart = Loadable({
   loader: () => import('./pages/Cart'),
-  loading: () => <div>Идёт загрузка корзины...</div>,
+  loading: () => <Preloader />,
 });
 
 const FullPizza = React.lazy(() => import('./pages/FullPizza/FullPizza'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
+const Home = React.lazy(() => import('./pages/Home'));
 
 const App: React.FC = () => (
   <Routes>

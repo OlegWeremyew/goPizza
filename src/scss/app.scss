@@ -83,6 +83,7 @@ body {
 
       .sort {
         padding-left: 20px;
+
         b {
           display: none;
         }
@@ -115,6 +116,7 @@ body {
   &--cart {
     max-width: 820px;
     margin: 90px auto;
+
     .content__title {
       margin: 0;
     }
@@ -140,6 +142,7 @@ body {
       width: 30px;
       height: 30px;
       margin-right: 10px;
+
       path {
         stroke: $black;
         stroke-width: 1.9;
@@ -172,6 +175,7 @@ body {
           stroke: darken($color: #b6b6b6, $amount: 50);
         }
       }
+
       span {
         color: darken($color: #b6b6b6, $amount: 50);
       }
@@ -297,6 +301,7 @@ body {
           height: 11.5px;
           position: relative;
         }
+
         &:hover,
         &:active {
           border-color: darken($color: $gray-line, $amount: 80);
@@ -339,7 +344,6 @@ body {
 
         span {
           color: darken($color: $gray-line, $amount: 20);
-          font-weight: 500;
           font-weight: 600;
         }
 
@@ -354,6 +358,7 @@ body {
 
         svg {
           margin-right: 12px;
+
           path {
             fill: transparent;
             stroke-width: 2;
@@ -371,14 +376,36 @@ body {
   }
 
   &--empty {
-    margin: 80px auto;
+    margin: 20px auto;
     width: 620px;
     text-align: center;
+
+    @media (max-width: 760px) {
+      margin: 0 auto;
+      width: 520px;
+    }
+
+    @media (max-width: 560px) {
+      width: 320px;
+    }
+
+    @media (max-width: 380px) {
+      width: 300px;
+    }
 
     h2 {
       font-size: 36px;
       font-weight: 700;
       margin-bottom: 15px;
+
+      @media (max-width: 760px) {
+        font-size: 32px;
+      }
+
+      @media (max-width: 560px) {
+        font-size: 26px;
+      }
+
     }
 
     p {
@@ -386,6 +413,14 @@ body {
       line-height: 145.4%;
       letter-spacing: 0.01em;
       color: #777777;
+
+      @media (max-width: 560px) {
+        font-size: 18px;
+      }
+
+      @media (max-width: 420px) {
+        font-size: 16px;
+      }
     }
 
     icon {
@@ -397,6 +432,17 @@ body {
       display: block;
       width: 300px;
       margin: 45px auto 60px;
+
+      @media (max-width: 760px) {
+        width: 250px;
+        margin: 25px auto 30px;
+      }
+
+      @media (max-width: 560px) {
+        width: 220px;
+        margin: 15px auto 20px;
+      }
+
     }
 
     .button--black {
