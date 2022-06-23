@@ -4,7 +4,7 @@ import { EMPTY_ARRAY } from '../../constants';
 import { calcTotalPrice } from '../../utils/calcTotalPrice';
 import { getCartFromLS } from '../../utils/getCartFromLS';
 
-import { CartItem, CartSliceState } from './types';
+import { CartItemType, CartSliceState } from './types';
 
 const initialState: CartSliceState = getCartFromLS();
 
@@ -12,7 +12,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem(state, action: PayloadAction<CartItem>) {
+    addItem(state, action: PayloadAction<CartItemType>) {
       const findItem = state.items.find(obj => obj.id === action.payload.id);
 
       if (findItem) {

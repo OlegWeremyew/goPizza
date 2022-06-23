@@ -1,5 +1,5 @@
 import { EMPTY_ARRAY } from '../constants';
-import { CartItem, CartSliceState } from '../redux/cart/types';
+import { CartItemType, CartSliceState } from '../redux/cart/types';
 
 import { calcTotalPrice } from './calcTotalPrice';
 
@@ -9,7 +9,7 @@ export const getCartFromLS = (): CartSliceState => {
   const totalPrice = calcTotalPrice(items);
 
   return {
-    items: items as CartItem[],
+    items: items as CartItemType[],
     totalPrice,
   };
 };

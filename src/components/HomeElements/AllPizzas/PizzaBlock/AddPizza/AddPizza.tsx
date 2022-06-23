@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCartItemById } from '../../../../../redux/cart/selectors';
 import { addItem } from '../../../../../redux/cart/slice';
-import { CartItem } from '../../../../../redux/cart/types';
+import { CartItemType } from '../../../../../redux/cart/types';
 
 import { typeNames } from './data';
 import { AddPizzaPropsType } from './types';
@@ -23,7 +23,7 @@ export const AddPizza: React.FC<AddPizzaPropsType> = ({
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = (): void => {
-    const item: CartItem = {
+    const item: CartItemType = {
       id,
       title,
       price,
