@@ -4,7 +4,7 @@
 @import './components/all';
 
 body {
-  background-color: $background;
+  background: linear-gradient($background1, $background2);
 }
 
 .wrapper {

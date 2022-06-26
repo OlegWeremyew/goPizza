@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch } from 'react-redux';
 
@@ -7,7 +7,7 @@ import { CartItemType } from '../../../../redux/cart/types';
 
 import { CartCountPropsType } from './types';
 
-export const CartCount: React.FC<CartCountPropsType> = ({ id, count }) => {
+export const CartCount: FC<CartCountPropsType> = ({ id, count }) => {
   const dispatch = useDispatch();
   const onClickPlus = (): void => {
     dispatch(

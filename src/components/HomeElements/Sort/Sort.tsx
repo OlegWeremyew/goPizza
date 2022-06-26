@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { FC, memo, useEffect, useRef, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
@@ -8,7 +8,7 @@ import { SortItems } from './SortItems';
 import { SortLabel } from './SortLabel';
 import { PopupClick, SortItem, SortPopupProps } from './types';
 
-export const Sort: React.FC<SortPopupProps> = memo(({ value }) => {
+export const Sort: FC<SortPopupProps> = memo(({ value }) => {
   const dispatch = useDispatch();
   const sortRef = useRef<HTMLDivElement>(null);
 
@@ -20,7 +20,7 @@ export const Sort: React.FC<SortPopupProps> = memo(({ value }) => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent): any => {
+    const handleClickOutside = (event: MouseEvent): void => {
       const _event = event as PopupClick;
 
       if (sortRef.current && !_event.path.includes(sortRef.current)) {

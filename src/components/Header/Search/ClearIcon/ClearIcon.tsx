@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from '../Search.module.scss';
 
 import { ClearIconType } from './types';
 
-export const ClearIcon: React.FC<ClearIconType> = ({ onClickClear }) => (
+export const ClearIcon: FC<ClearIconType> = ({ onClickClear }) => (
   <svg
     onClick={onClickClear}
     className={styles.clearIcon}

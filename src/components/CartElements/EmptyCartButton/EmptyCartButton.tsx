@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { EmptyCartButtonType } from './types';
 
-export const EmptyCartButton: React.FC<EmptyCartButtonType> = ({ onClickClear }) => (
+export const EmptyCartButton: FC<EmptyCartButtonType> = ({ onClickClear }) => (
   <div onClick={onClickClear} className="cart__clear">
     <svg
       width="20"

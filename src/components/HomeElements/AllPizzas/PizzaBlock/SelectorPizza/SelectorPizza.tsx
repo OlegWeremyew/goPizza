@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { EMPTY_STRING } from '../../../../../constants';
 import { typeNames } from '../AddPizza/data';
 
 import { SelectorPizzaPropType } from './types';
 
-export const SelectorPizza: React.FC<SelectorPizzaPropType> = ({
+export const SelectorPizza: FC<SelectorPizzaPropType> = ({
   types,
   setActiveType,
   activeType,

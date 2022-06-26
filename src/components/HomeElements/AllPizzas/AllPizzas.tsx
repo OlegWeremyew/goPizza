@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -8,11 +8,13 @@ import { Pizza } from '../../../redux/pizza/types';
 import { PizzaBlock } from './PizzaBlock';
 import { Skeleton } from './Skeleton';
 
-export const AllPizzas: React.FC = () => {
+export const AllPizzas: FC = () => {
   const { items, status } = useSelector(selectPizzaData);
 
   const pizzas = items.map((obj: Pizza) => <PizzaBlock key={obj.id} {...obj} />);
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
+
+  const content = status === 'loading' ? skeletons : pizzas;
 
   return (
     <>
@@ -25,7 +27,7 @@ export const AllPizzas: React.FC = () => {
           </p>
         </div>
       ) : (
-        <div className="content__items">{status === 'loading' ? skeletons : pizzas}</div>
+        <div className="content__items">{content}</div>
       )}
     </>
   );

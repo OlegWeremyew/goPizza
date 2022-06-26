@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -7,7 +7,7 @@ import { CartItemType } from '../../../redux/cart/types';
 
 import { GoCartIcon } from './GoCartIcon';
 
-export const GoCart: React.FC = () => {
+export const GoCart: FC = () => {
   const { items, totalPrice } = useSelector(selectCart);
   const totalCount = items.reduce(
     (sum: number, item: CartItemType) => sum + item.count,

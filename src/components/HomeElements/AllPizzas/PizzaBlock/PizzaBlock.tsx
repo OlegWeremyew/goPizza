@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { AddPizza } from './AddPizza';
 import { PizzaImg } from './PizzaImg';
 import { SelectorPizza } from './SelectorPizza';
 import { PizzaBlockProps } from './types';
 
-export const PizzaBlock: React.FC<PizzaBlockProps> = ({
+export const PizzaBlock: FC<PizzaBlockProps> = ({
   id,
   title,
   price,

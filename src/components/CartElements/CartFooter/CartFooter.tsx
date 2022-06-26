@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { OrderDetails } from './OrderDetails';
 import { ReturnButton } from './ReturnButton';
 
-export const CartFooter: React.FC = () => (
+export const CartFooter: FC = () => (
   <div className="cart__bottom">
     <OrderDetails />
     <div className="cart__bottom-buttons">

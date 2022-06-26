@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import axios from 'axios';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
+import { Preloader } from '../../components';
+
 import styles from './FullPizza.module.scss';
+import { PizzasType } from './types';
 
-type PizzasType = {
-  imageUrl: string;
-  title: string;
-  price: number;
-};
-
-const FullPizza: React.FC = () => {
+const FullPizza: FC = () => {
   const [pizza, setPizza] = useState<PizzasType>();
 
   const { id } = useParams();
@@ -19,10 +16,9 @@ const FullPizza: React.FC = () => {
 
   useEffect(() => {
     async function fetchPizza(): Promise<any> {
+      const endPoint = `https://626d16545267c14d5677d9c2.mockapi.io/items/${id}`;
       try {
-        const { data } = await axios.get(
-          `https://626d16545267c14d5677d9c2.mockapi.io/items/${id}`,
-        );
+        const { data } = await axios.get(endPoint);
         setPizza(data);
       } catch (error) {
         navigate('/');
@@ -33,7 +29,7 @@ const FullPizza: React.FC = () => {
   }, []);
 
   if (!pizza) {
-    return <>Загрузка...</>;
+    return <Preloader />;
   }
 
   return (

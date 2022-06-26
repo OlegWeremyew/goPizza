@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useSelector } from 'react-redux';
 
 import { selectCart } from '../../../../redux/cart/selectors';
 
-export const OrderDetails: React.FC = () => {
+export const OrderDetails: FC = () => {
   const { totalPrice, items } = useSelector(selectCart);
 
   const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const CartTitle: React.FC = () => (
+export const CartTitle: FC = () => (
   <h2 className="content__title">
     <svg
       width="18"

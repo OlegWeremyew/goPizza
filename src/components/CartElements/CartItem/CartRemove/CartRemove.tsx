@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch } from 'react-redux';
 
@@ -6,7 +6,7 @@ import { removeItem } from '../../../../redux/cart/slice';
 
 import { CartRemovePropsType } from './types';
 
-export const CartRemove: React.FC<CartRemovePropsType> = ({ id }) => {
+export const CartRemove: FC<CartRemovePropsType> = ({ id }) => {
   const dispatch = useDispatch();
 
   const onClickRemove = (): void => {

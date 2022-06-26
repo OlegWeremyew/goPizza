@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { EMPTY_STRING } from '../../../../constants';
 import { sortList } from '../data';
 
 import { SortItemsPropsType } from './types';
 
-export const SortItems: React.FC<SortItemsPropsType> = ({
-  onClickListItem,
-  SortProperty,
-}) => (
+export const SortItems: FC<SortItemsPropsType> = ({ onClickListItem, SortProperty }) => (
   <div className="sort__popup">
     <ul>
       {sortList.map((obj, index) => (

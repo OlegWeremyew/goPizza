@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { SortLabelPropsType } from './types';
 
-export const SortLabel: React.FC<SortLabelPropsType> = ({ setOpen, open, name }) => {
+export const SortLabel: FC<SortLabelPropsType> = ({ setOpen, open, name }) => {
   const changeOpenStatus = (): void => {
     setOpen(!open);
   };

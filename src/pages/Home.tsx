@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { FC, useCallback, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -9,7 +9,7 @@ import { setCategoryId, setCurrentPage } from '../redux/filter/slice';
 import { fetchPizzas } from '../redux/pizza/asyncActions';
 import { useAppDispatch } from '../redux/types';
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   const dispatch = useAppDispatch();
 
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
@@ -27,7 +27,6 @@ const Home: React.FC = () => {
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
     const category = categoryId > 0 ? String(categoryId) : EMPTY_STRING;
     const search = searchValue;
-
     dispatch(
       fetchPizzas({
         sortBy,
@@ -37,7 +36,6 @@ const Home: React.FC = () => {
         currentPage: String(currentPage),
       }),
     );
-
     window.scrollTo(0, 0);
   };
 

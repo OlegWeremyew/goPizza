@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { CartItemProps } from '../CartEmpty/types';
 
@@ -6,7 +6,7 @@ import { CartCount } from './CartCount';
 import { CartItemInfo } from './CartItemInfo';
 import { CartRemove } from './CartRemove';
 
-export const CartItem: React.FC<CartItemProps> = ({
+export const CartItem: FC<CartItemProps> = ({
   id,
   title,
   type,

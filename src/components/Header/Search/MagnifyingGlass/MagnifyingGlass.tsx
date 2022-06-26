@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from '../Search.module.scss';
 
-export const MagnifyingGlass: React.FC = () => (
+export const MagnifyingGlass: FC = () => (
   <svg
     className={styles.icon}
     enableBackground="new 0 0 32 32"

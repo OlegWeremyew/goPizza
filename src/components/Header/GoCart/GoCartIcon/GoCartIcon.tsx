@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const GoCartIcon: React.FC = () => (
+export const GoCartIcon: FC = () => (
   <svg
     width="18"
     height="18"

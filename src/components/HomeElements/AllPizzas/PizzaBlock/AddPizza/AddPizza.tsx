@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -9,7 +9,7 @@ import { CartItemType } from '../../../../../redux/cart/types';
 import { typeNames } from './data';
 import { AddPizzaPropsType } from './types';
 
-export const AddPizza: React.FC<AddPizzaPropsType> = ({
+export const AddPizza: FC<AddPizzaPropsType> = ({
   id,
   title,
   price,

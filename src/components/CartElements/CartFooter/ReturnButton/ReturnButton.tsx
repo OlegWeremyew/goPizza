@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Link } from 'react-router-dom';
 
-export const ReturnButton: React.FC = () => (
+export const ReturnButton: FC = () => (
   <Link to="/" className="button button--outline button--add go-back-btn">
     <svg
       width="8"

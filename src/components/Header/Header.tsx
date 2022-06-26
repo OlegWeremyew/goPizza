@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { GoCart } from './GoCart';
 import { InnerHeader } from './InnerHeader';
 import { Search } from './Search';
 
-export const Header: React.FC = () => {
+export const Header: FC = () => {
   const { items } = useSelector(selectCart);
   const location = useLocation();
   const isMounted = useRef(false);

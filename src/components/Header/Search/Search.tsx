@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useRef, useState } from 'react';
+import React, { ChangeEvent, FC, useCallback, useRef, useState } from 'react';
 
 import debounce from 'lodash.debounce';
 import { useDispatch } from 'react-redux';
@@ -10,7 +10,7 @@ import { ClearIcon } from './ClearIcon';
 import { MagnifyingGlass } from './MagnifyingGlass';
 import styles from './Search.module.scss';
 
-export const Search: React.FC = () => {
+export const Search: FC = () => {
   const dispatch = useDispatch();
 
   const [value, setValue] = useState<string>(EMPTY_STRING);

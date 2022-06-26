@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import logoSvg from '../../../assets/img/pizza.png';
 
-export const InnerHeader: React.FC = () => (
+export const InnerHeader: FC = () => (
   <div className="header__logo">
     <img width="38" src={logoSvg} alt="Pizza logo" />
     <div>

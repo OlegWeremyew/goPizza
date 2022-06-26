@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { FC, lazy } from 'react';
 
 import Loadable from 'react-loadable';
 import { Routes, Route } from 'react-router-dom';
 
-import './scss/app.scss';
-import { Preloader } from './components';
-import { MainLayout } from './layouts';
+import '../scss/app.scss';
+import { Preloader } from '../components';
+import { MainLayout } from '../layouts';
 
 const Cart = Loadable({
-  loader: () => import('./pages/Cart'),
+  loader: () => import('../pages/Cart'),
   loading: () => <Preloader />,
 });
 
-const FullPizza = React.lazy(() => import('./pages/FullPizza/FullPizza'));
-const NotFound = React.lazy(() => import('./pages/NotFound'));
-const Home = React.lazy(() => import('./pages/Home'));
+const FullPizza = lazy(() => import('../pages/FullPizza/FullPizza'));
+const NotFound = lazy(() => import('../pages/NotFound'));
+const Home = lazy(() => import('../pages/Home'));
 
-const App: React.FC = () => (
+export const App: FC = () => (
   <Routes>
     <Route path="/" element={<MainLayout />}>
       <Route path="" element={<Home />} />
@@ -26,5 +26,3 @@ const App: React.FC = () => (
     </Route>
   </Routes>
 );
-
-export default App;
