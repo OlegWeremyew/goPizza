@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { selectCart } from '../../../redux/cart/selectors';
-import { CartItemType } from '../../../redux/cart/types';
-
 import { GoCartIcon } from './GoCartIcon';
+
+import { selectCart } from 'redux/cart/selectors';
+import { CartItemType } from 'redux/cart/types';
 
 export const GoCart: FC = () => {
   const { items, totalPrice } = useSelector(selectCart);

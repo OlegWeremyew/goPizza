@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { EMPTY_STRING } from '../../../../constants';
+import { EMPTY_STRING } from 'constants/variables';
 import { sortList } from '../data';
 
 import { SortItemsPropsType } from './types';

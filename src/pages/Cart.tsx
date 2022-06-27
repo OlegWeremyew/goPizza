@@ -2,16 +2,10 @@ import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  CartItem,
-  CartEmpty,
-  EmptyCartButton,
-  CartTitle,
-  CartFooter,
-} from '../components';
-import { selectCart } from '../redux/cart/selectors';
-import { clearItems } from '../redux/cart/slice';
-import { CartItemType } from '../redux/cart/types';
+import { CartItem, CartEmpty, EmptyCartButton, CartTitle, CartFooter } from 'components';
+import { selectCart } from 'redux/cart/selectors';
+import { clearItems } from 'redux/cart/slice';
+import { CartItemType } from 'redux/cart/types';
 
 const Cart: FC = () => {
   const dispatch = useDispatch();

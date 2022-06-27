@@ -1,6 +1,6 @@
-import { RootState } from '../types';
-
 import { CartSliceState } from './types';
+
+import { RootState } from 'redux/types';
 
 export const selectCart = (state: RootState): CartSliceState => state.cart;
 

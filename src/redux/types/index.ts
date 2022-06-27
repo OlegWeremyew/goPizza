@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { store } from '../store';
+import { store } from 'redux/store';
 
 export type RootState = ReturnType<typeof store.getState>;
 

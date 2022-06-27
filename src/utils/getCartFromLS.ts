@@ -1,7 +1,7 @@
-import { EMPTY_ARRAY } from '../constants';
-import { CartItemType, CartSliceState } from '../redux/cart/types';
-
 import { calcTotalPrice } from './calcTotalPrice';
+
+import { EMPTY_ARRAY } from 'constants/variables';
+import { CartItemType, CartSliceState } from 'redux/cart/types';
 
 export const getCartFromLS = (): CartSliceState => {
   const data = localStorage.getItem('cart');

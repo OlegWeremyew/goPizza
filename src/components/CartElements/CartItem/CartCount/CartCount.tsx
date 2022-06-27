@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { addItem, minusItem } from '../../../../redux/cart/slice';
-import { CartItemType } from '../../../../redux/cart/types';
-
 import { CartCountPropsType } from './types';
+
+import { addItem, minusItem } from 'redux/cart/slice';
+import { CartItemType } from 'redux/cart/types';
 
 export const CartCount: FC<CartCountPropsType> = ({ id, count }) => {
   const dispatch = useDispatch();

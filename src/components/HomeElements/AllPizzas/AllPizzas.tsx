@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { selectPizzaData } from '../../../redux/pizza/selectors';
-import { Pizza } from '../../../redux/pizza/types';
-
 import { PizzaBlock } from './PizzaBlock';
 import { Skeleton } from './Skeleton';
+
+import { selectPizzaData } from 'redux/pizza/selectors';
+import { Pizza } from 'redux/pizza/types';
 
 export const AllPizzas: FC = () => {
   const { items, status } = useSelector(selectPizzaData);

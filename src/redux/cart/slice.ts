@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { EMPTY_ARRAY } from '../../constants';
-import { calcTotalPrice } from '../../utils/calcTotalPrice';
-import { getCartFromLS } from '../../utils/getCartFromLS';
-
 import { CartItemType, CartSliceState } from './types';
+
+import { EMPTY_ARRAY } from 'constants/variables';
+import { calcTotalPrice } from 'utils/calcTotalPrice';
+import { getCartFromLS } from 'utils/getCartFromLS';
 
 const initialState: CartSliceState = getCartFromLS();
 

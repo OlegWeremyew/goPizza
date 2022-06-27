@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { EMPTY_ARRAY } from '../../constants';
+import { EMPTY_ARRAY } from 'constants/variables';
 
 import { fetchPizzas } from './asyncActions';
 import { Pizza, PizzaSliceState, Status } from './types';

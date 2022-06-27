@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { EMPTY_STRING } from '../../constants';
-
 import { FilterSliceState, Sort, SortPropertyEnum } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
 
 const initialState: FilterSliceState = {
   searchValue: EMPTY_STRING,

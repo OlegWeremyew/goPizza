@@ -3,11 +3,11 @@ import React, { FC, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
-import { selectCart } from '../../redux/cart/selectors';
-
 import { GoCart } from './GoCart';
 import { InnerHeader } from './InnerHeader';
 import { Search } from './Search';
+
+import { selectCart } from 'redux/cart/selectors';
 
 export const Header: FC = () => {
   const { items } = useSelector(selectCart);

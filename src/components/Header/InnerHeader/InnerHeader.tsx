@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import logoSvg from '../../../assets/img/pizza.png';
+import logoSvg from 'assets/img/pizza.png';
 
 export const InnerHeader: FC = () => (
   <div className="header__logo">

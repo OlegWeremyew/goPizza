@@ -2,11 +2,11 @@ import React, { FC, memo, useEffect, useRef, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { setSort } from '../../../redux/filter/slice';
-
 import { SortItems } from './SortItems';
 import { SortLabel } from './SortLabel';
 import { PopupClick, SortItem, SortPopupProps } from './types';
+
+import { setSort } from 'redux/filter/slice';
 
 export const Sort: FC<SortPopupProps> = memo(({ value }) => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 
-import { EMPTY_STRING } from '../../../constants';
+import { EMPTY_STRING } from 'constants/variables';
 
 import { categories } from './data';
 import { CategoriesProps } from './types';

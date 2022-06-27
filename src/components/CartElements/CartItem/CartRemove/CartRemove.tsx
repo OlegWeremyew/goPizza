@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { removeItem } from '../../../../redux/cart/slice';
-
 import { CartRemovePropsType } from './types';
+
+import { removeItem } from 'redux/cart/slice';
 
 export const CartRemove: FC<CartRemovePropsType> = ({ id }) => {
   const dispatch = useDispatch();

@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectCartItemById } from '../../../../../redux/cart/selectors';
-import { addItem } from '../../../../../redux/cart/slice';
-import { CartItemType } from '../../../../../redux/cart/types';
-
 import { typeNames } from './data';
 import { AddPizzaPropsType } from './types';
+
+import { selectCartItemById } from 'redux/cart/selectors';
+import { addItem } from 'redux/cart/slice';
+import { CartItemType } from 'redux/cart/types';
 
 export const AddPizza: FC<AddPizzaPropsType> = ({
   id,

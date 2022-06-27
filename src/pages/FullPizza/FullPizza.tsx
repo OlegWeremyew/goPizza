@@ -3,10 +3,10 @@ import React, { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
-import { Preloader } from '../../components';
-
 import styles from './FullPizza.module.scss';
 import { PizzasType } from './types';
+
+import { Preloader } from 'components';
 
 const FullPizza: FC = () => {
   const [pizza, setPizza] = useState<PizzasType>();

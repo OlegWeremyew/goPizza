@@ -2,12 +2,12 @@ import React, { FC, useCallback, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { Categories, Sort, Pagination, AllPizzas } from '../components';
-import { EMPTY_STRING } from '../constants';
-import { selectFilter } from '../redux/filter/selectors';
-import { setCategoryId, setCurrentPage } from '../redux/filter/slice';
-import { fetchPizzas } from '../redux/pizza/asyncActions';
-import { useAppDispatch } from '../redux/types';
+import { Categories, Sort, Pagination, AllPizzas } from 'components';
+import { EMPTY_STRING } from 'constants/variables';
+import { selectFilter } from 'redux/filter/selectors';
+import { setCategoryId, setCurrentPage } from 'redux/filter/slice';
+import { fetchPizzas } from 'redux/pizza/asyncActions';
+import { useAppDispatch } from 'redux/types';
 
 const Home: FC = () => {
   const dispatch = useAppDispatch();

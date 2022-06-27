@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
-import { App } from './App';
-import { Preloader } from './components';
-import { store } from './redux/store';
+import { App } from 'App';
+import { Preloader } from 'components';
+import { store } from 'redux/store';
 
 const rootElem = document.getElementById('root');
 

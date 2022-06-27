@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 
-import { EMPTY_STRING } from '../../../../../constants';
 import { typeNames } from '../AddPizza/data';
 
 import { SelectorPizzaPropType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
 
 export const SelectorPizza: FC<SelectorPizzaPropType> = ({
   types,

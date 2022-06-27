@@ -1,5 +1,6 @@
-import { SortPropertyEnum } from '../../../../redux/filter/types';
 import { SortItem } from '../types';
+
+import { SortPropertyEnum } from 'redux/filter/types';
 
 export const sortList: SortItem[] = [
   { name: 'популярности (DESC)', sortProperty: SortPropertyEnum.RATING_DESC },
