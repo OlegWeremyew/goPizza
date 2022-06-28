@@ -1,3 +1,5 @@
+import { Status } from 'redux/pizza/enum';
+
 export type Pizza = {
   id: string;
   title: string;
@@ -7,12 +9,6 @@ export type Pizza = {
   types: number[];
   rating: number;
 };
-
-export enum Status {
-  LOADING = 'loading',
-  SUCCESS = 'completed',
-  ERROR = 'error',
-}
 
 export type SearchPizzaParams = {
   sortBy: string;

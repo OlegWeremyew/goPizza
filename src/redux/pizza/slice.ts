@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { EMPTY_ARRAY } from 'constants/variables';
-
 import { fetchPizzas } from './asyncActions';
-import { Pizza, PizzaSliceState, Status } from './types';
+import { Pizza, PizzaSliceState } from './types';
+
+import { EMPTY_ARRAY } from 'constants/variables';
+import { Status } from 'redux/pizza/enum';
 
 const initialState: PizzaSliceState = {
   items: EMPTY_ARRAY,
