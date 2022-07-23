@@ -1,17 +1,15 @@
 {
   "files": {
     "main.css": "/goPizza/static/css/main.8e739c0a.css",
-    "main.js": "/goPizza/static/js/main.b3908242.js",
+    "main.js": "/goPizza/static/js/main.79c7c53d.js",
     "Cart.js": "/goPizza/static/js/Cart.ad8c7694.chunk.js",
     "FullPizza.css": "/goPizza/static/css/FullPizza.c6f6d5eb.chunk.css",
     "FullPizza.js": "/goPizza/static/js/FullPizza.a0c33b56.chunk.js",
     "NotFound.js": "/goPizza/static/js/NotFound.520a6074.chunk.js",
     "Home.js": "/goPizza/static/js/Home.4e26ad52.chunk.js",
-    "static/media/pizza.png": "/goPizza/static/media/pizza.95d2ec3b77f9841698ec.png",
-    "static/media/empty-cart.png": "/goPizza/static/media/empty-cart.db905d1f4b063162f25b.png",
     "index.html": "/goPizza/index.html",
     "main.8e739c0a.css.map": "/goPizza/static/css/main.8e739c0a.css.map",
-    "main.b3908242.js.map": "/goPizza/static/js/main.b3908242.js.map",
+    "main.79c7c53d.js.map": "/goPizza/static/js/main.79c7c53d.js.map",
     "Cart.ad8c7694.chunk.js.map": "/goPizza/static/js/Cart.ad8c7694.chunk.js.map",
     "FullPizza.c6f6d5eb.chunk.css.map": "/goPizza/static/css/FullPizza.c6f6d5eb.chunk.css.map",
     "FullPizza.a0c33b56.chunk.js.map": "/goPizza/static/js/FullPizza.a0c33b56.chunk.js.map",
@@ -20,6 +18,6 @@
   },
   "entrypoints": [
     "static/css/main.8e739c0a.css",
-    "static/js/main.b3908242.js"
+    "static/js/main.79c7c53d.js"
   ]
 }
