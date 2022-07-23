@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
 import styles from './FullPizza.module.scss';
@@ -32,6 +33,13 @@ const FullPizza: FC = () => {
 
   return (
     <div className={styles.container}>
+      <Helmet>
+        <title>{pizza.title}</title>
+        <meta
+          name="description"
+          content="on this page you can see what pieces of food the pizza is made of"
+        />
+      </Helmet>
       <img className={styles.pizzaImg} src={pizza.imageUrl} alt="pizza" />
       <h2>{pizza.title}</h2>
       <h4>{pizza.price} ₽</h4>

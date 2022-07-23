@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { CartItem, CartEmpty, EmptyCartButton, CartTitle, CartFooter } from 'components';
@@ -23,6 +24,13 @@ const Cart: FC = () => {
 
   return (
     <div className="container container--cart">
+      <Helmet>
+        <title>Your Cart</title>
+        <meta
+          name="description"
+          content="on this page you can make order and edit order"
+        />
+      </Helmet>
       <div className="cart">
         <div className="cart__top">
           <CartTitle />
